@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<head>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+</head>
+
+<body>
+
+<header class="navbar  navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Spring Boot Todos</a>
+        </div>
+    </div>
+</header>
+
+<div class="alert-container container">
+    <div th:text="${success}" th:class="(${success == null} ? 'hidden' : 'show') + ' alert alert-success'"></div>
+</div>
+
+<div class="container" layout:fragment="content"/>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

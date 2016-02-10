@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+
+<div layout:fragment="content">
+    <h1>Todos</h1>
+    <ul>
+        <li th:each="todo : ${todos}" class="list-unstyled">
+            <span th:text="${todo.name}"></span>
+            <form th:action="@{|/todos/${todo.id}|}" method="post" style="display: inline">
+                <input type="hidden" name="_method" value="delete"/>
+                <input type="submit" class="btn btn-link" value="delete"/>
+            </form>
+        </li>
+    </ul>
+
+    <h4>Add a todo</h4>
+
+    <div>
+        <form th:action="@{|/todos|}" method="post" th:object="${todo}">
+
+            <label>
+                <input type="text" name="name"/>
+            </label>
+
+            <input type="submit"/>
+        </form>
+    </div>
+</div>
+
+</html>
